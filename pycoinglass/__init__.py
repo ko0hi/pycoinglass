@@ -6,11 +6,11 @@ import numpy as np
 import pandas as pd
 
 from collections import namedtuple
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum, auto
 
 def fromtimestamp(ts):
-    return datetime.utcfromtimestamp(ts / 1000)
+    return datetime.fromtimestamp(ts / 1000, timezone.utc)
 
 class Symbol(Enum):
     ALL = auto()
