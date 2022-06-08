@@ -45,7 +45,8 @@ class DataParser:
         df['timestamp'] = list(map(fromtimestamp, df['updateTime']))
         df.sort_values("exchangeName", inplace=True)
         df.reset_index(inplace=True)
-        df.drop(columns="index", inplace=True)
+        df.drop(columns=["exchangeLogo", "symbolLogo"], inplace=True)
+        df.rename(columns={"index": "rank"}, inplace=True)
         return df
 
     @staticmethod
